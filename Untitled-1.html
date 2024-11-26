@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بقالة قمير</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #8c00ff;
+            color: white;
+            padding: 10px 0;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px;
+        }
+        .product {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        footer {
+            background: #8c00ff;
+            color: white;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        .cart {
+            margin: 20px;
+            padding: 15px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .cart ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .cart li {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        .cart button {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cart button:hover {
+            background: #d32f2f;
+        }
+        .location {
+            margin: 20px;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>بقالة قمير</h1>
+        <p>اختر منتجاتك ا!</p>
+    </header>
+
+    <section class="products">
+        <div class="product" data-price="5">
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTERUSExMVFRUXGBUYGBcYEhcVEhgVGBUWFhcaFhcYHSggGBolHRUYITEiJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGy0fICUrKy0uLS0tLy0vLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS8tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABwIDBAUGAQj/xAA7EAACAQICBwUHAgUEAwAAAAAAAQIDEQQhBQYSMUFRYQcicYGREzJCobHB0RRSI2Jy4fCCkqLxFVNz/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAIDBAEFBv/EACkRAQACAgEDAwMEAwAAAAAAAAABAgMRBBIhMSJBUQUTYTJxwdEUI4H/2gAMAwEAAhEDEQA/AJxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8bA9MHS2mKGGht16saa4Xeb/pis5PokcFrr2kqm3RwbTlxrW2or/5rdJ/zPLx4RTj8fOtNzqTlOT3uUm30VzJl5UV7V7qb5ojtCXNI9rWHjdUaNSpycmqUX4b5eqRpX2tYiUrRw9FLrKcred19COIU7238P8ApGXRwM2n8K5GS3KyfOlP3L/KRsH2tTb7+Gg1/LUcX5JpnWaG1+wdfJz9lL9tS0V5Tvs/Mhqhozr9jrtWNS5Yi07KNP8AfJXUv6F8XjkuoxcnNNtR3Spe8z8pfjJNXWa58D002hdXo4ayp1auzxg3H2b/ANOzl5G5PUrMzHeNNMAAJOgAAAAAAAAAAAAAAAAAAAACKe3DSmKw/wCn9k06NTbjKLWaqRtKL32zTe9O2ySZoqjKFClCcnKcacIyk3duSik229+Zwvbpg9vRiqf+mtSn5S2qX1qL0O80fiFUpU6i3ThCS8JRT+5GI9UrJj/XE/mf4ZBEXaXrvKblhsPK1OOVSafvya91P9q4232fA6jtF1hlSh+nov8AiTsptZyjTfBdWr+C8URLhdDNxW27Xd2tpeCz9fyZOTln9MMuS0+IaanGUm8r2WXnz5bzYYfREn72fRfn/PE3ssJCCShk75Le5PPcrb/VmwwGqmNrvuUXBP46t6S/2vvPyiYui09ohRFfhoY0lFe78voZGDo1Ks1TpU5VJv4Y5ytzfCK6vIkPRnZpTWeJrSqPjCH8On4N5yfimjs9G6Mo0IbFGnGnHlFWu+cnvk+rL6cK0/q7LIwzPlxerPZ8o2qYy0pb1STvTX9cvj8N3id9GKSslZLgtx6DfjxVxxqsL61ivgABYkAAAAAAAAAAAAAAAAAGHpPSEaMdp5t5RjxbDsRMzqF/EYiMFtSaS6nMaV14o08oq/Vu3yKdN4eXspVq82na6jH4U9ys+vqQlp7Gv2j32eavxT+xRlvaPD1eDw8WTvedpTnr+5OyaXgePTlWor06sr8tpkM0sQ99zf6J0lOLyu36/QpjJb3elbhYqxujodacfVr4atRnKV3B5Nuzce8svFIw9TNacTJ4ehGrKMXFK+07RhCLv8o5eRf0liXOF5LZnwkudsvUj7RyUpey4/xLJPLJN2t5/wDE5NvMsmSYruuo8f8AP3SLp/T1Hbnsy9pUu9qfw3vu65ZZcuBrMPpyDalNOfRytH0T2l6nG124u3RHd6rasJ4T9ZWvZ92nHi+Dl57lYhX1TtTj43FpHqjqn8/06PQ2vEKWVLB0ot/sjsSfjLNvzO60ZrLCqltQlB/7l6/2IrxGkFRXdspvgldrxsayWsNVbqkvDNF8ZOnzKV+HS8eiun0DTqKSummishbQWudWEl3n553JL1f1lp4i0X3Z8r5PwZdTJW3hhz8PJi7zHZvgAWMgAAAAAAAAAAAAAAAAAAKK1VRi5Sdkk230RysJupNYqo8pK9KO/Yp8JNcW1b1MPtY026GF9nF2lUdvL/PoR/iO0OdSkoxiod1RunnspJJLksiM2jemzDgvNOuPd02vms0I0ti6nK97X32va6RDmPxM6k5Sm3KTefDpbp/YzMTjNpuUnd8suf8AjMSTjs5e827trcuS6lV+708FftxqFqOWb/uZNHGbNrN9c95g1KnK9+P0sUwnYpltrb5dJQ0jOWW2ork3dFUK+Hi05UI7SltbUJSi7q+bSl1Zzzq5f5cQxG8h3hPox38w6CtjcLJ7UqN28/en47lNG6jrZtQUI5KK2YqztFWtaKbsjh6eZs9FUE5b0rPjfNdCPVMeHa8XFvemZiKtSUtrak/PP5GNU2lm7vxzOjrYLYdlb+xi1tGt7uOdimZmW2kU01GHxOz7276eBv8ARulthqSk2t9+KNBjMM4uz4q6d7mKpNO63o7S+jLx63q+jtUtOrE0ld3mln1W6/5N8QVqFp/2VaD4N7Ml47/VE6Qkmk1uea8D08d+qHx3O432MmvaXoALGMAAAAAAAAAAAAAAABA3bXpFzxXs08oq3pv+ZG0Kljqu0evtYyo+r+bZyTVrozTPd9Bir04qwvTq8i3Op6lq+RQ5B3elbmVJlhMrciMw7FlzaKky3tZFSZCYX1syacs0dNgNFVZbM403KMs1sq+XXkczho7Ukr73/wBkzarTjGlCKWSilu5ZCtdrMmeccbju1mjtBVJJXvlz3/M3k9Xowpt77G2eKSZRi8Z3d52cdYZv8jLeY9kZ6ewyXTf+fuc9Xtl0v6cDf6xYlSqStuv9Dm5u7sY5n1dn0OOJ6I2vYKq4VIvdnGS5PNfa59Iaq4r2mFpy6W9N3ysfNmCpuUl0tb1/Fyf+zid8JblJ/RG3iz7PnvrlYmsW/LqwAbHzYAAAAAAAAAAAAAAAD5b11zxE31f1Obmdxr5o9wxVWLW6cvTadjj6+GaVzPMPfreJrDDbKWVzpstt8DmkZkTKkeJBAiVaZWihFZCV9V2m+JI+rOnk4JPJpK/oRvAz8DWlFpx3/kh1alrrjjJXUpQxmm0rNv5mqxWn9tOML5p57s2c5h4yae1xtnxsZ1GmkV3vMtOLBjp57sPE0pPfvRYjhHdXXI2c823cqjEqrRpvlnS1g8KlZWzJm7N4WwrfOb+iIloRu0TVqZh9jCU1zu/t9jbx47vnvq990iPy3gANb58AAAAAAAAAAAAAAABEXavoy1f2lspxT81k/p8yMa9HefQuv+ivbYVyS71PveXH7PyIMxVDMrtHd6XHybp+znq1ExZUTcV6djCqQINFZYKoh0zK2RKBzS3bEcSuFNsv2KoqxGYXVlTRom3wkbcOGfrw5GDRRn02U2bMcM6Mzz2pZcilsrlqidMyMjMjDIwsLw+Zn78uZKsKcuRsNC4ZzqJJXbaS8WyccJRUIRgvhSXoiPOzrRd6vtGu7T+cty/PkSSbcVdQ+a+o5uvJqPYABa88AAAAAAAAAAAAAAAB5KKaaeaeT8CE9edAPD15JLuvOL/lf43eRNpo9btCrE0Gku/G7h48Y+f1scmNrcOTos+e8RDI11WB0OOwzTasaivTKnp1lrnHM8kX5xLbRxastWPbFbQvnzIyuorpmXF5GJS4mTSiU2b8faGVTWR6+VvMuUoZFcKauRrV2+VkYenlnkZ+jKbnUSXM19WrlY77sy0Nt1PayXdhZ+MvhX38i2tdzpi5GXopN5SFq7o1UKEYfE85eL/G42YBsfNWmZncgADgAAAAAAAAAAAAAAAAAAIq7S9A+zqe3gu5UefSfH13+pHVeB9G6Z0bHEUZ0Z7pLJ8VLg14MgDTeAnQqzpVFaUXZ/Z+D3+ZC0NuDJuNNHVpotSgZNeNjDnIrmG6tlqcSy0XZzLW0RldSV6gjYUEa+lIzaMiqWyszpmTqW3HlJ8Sxa7MynCyzDvaFWFpudRJc0j6A1X0X+nw0Kdu9a8v6n+N3kRx2YavOpV/UTj/AA6e6+6U+C8t/oS6acVdRt4n1HP1W6I9gAFrzAAAAAAAAAAAAAAAAAAAAAAOP161Yhi4XVo1Yruy4Nftl068DsCxiaN0Ha2mJ3D5i04p4Wbp1ouLXPj4Pc14GhlpSDfInDtA1Jli45N5ZoifG9m2Jg7KLITVrjkT7Q1aqqW48szKhqHjE8ov5nQ6L1GxbttRIzRfTmR7w5zD03yNjVnGlFSqO3KKV5y8Fy6vIkjQ/Z81ZzOnwepFCObgm+bV2cjD8p5PqHbVIQhgNKRnK0abT4J5u/gSFqrqNOvJVcS3CG/ZXvy6fyr5kj4TV+lD3acV/pRs6WFSJ/bhmtzbzGo7PcBho04RhCKjCKsktyMk8SPSbEAAAAAAAAAAAAAAAAAAAAAAAAAACmUEyzPBwfBGQAMP/wAdDkiuODijJAFuNFIrsegAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/2Q==" alt="تفاح">
+            <h3>تفاح طازج</h3>
+            <p>السعر: 5 ريال/كجم</p>
+            <label for="quantity1">الكمية:</label>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToCart('تفاح طازج', 5, 'quantity1')">إضافة للسلة</button>
+        </div>
+        <div class="product" data-price="11">
+            <img src="data:image/jpeg;base64,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" alt="حليب">
+            <h3>حليب</h3>
+            <p>السعر: 11 ريال</p>
+            <label for="quantity2">الكمية:</label>
+            <input type="number" id="quantity2" min="1" value="1">
+            <button onclick="addToCart('حليب', 11, 'quantity2')">إضافة للسلة</button>
+        </div>
+        <div class="product" data-price="2">
+            <img src="https://cdn.salla.sa/xArmOK/2eb9fb30-a874-40e1-bc95-499c058e68c3-1000x714-ZY4QLqQbadqKKx2CvBPEXgGErtmilkLa14q6lLVB.jpg" alt="خبز">
+            <h3>خبز</h3>
+            <p>السعر: 2 ريال</p>
+            <label for="quantity3">الكمية:</label>
+            <input type="number" id="quantity3" min="1" value="1">
+            <button onclick="addToCart('خبز', 2, 'quantity3')">إضافة للسلة</button>
+        </div>
+    </section>
+
+    <div class="cart">
+        <h2>سلة </h2>
+        <ul id="cartItems"></ul>
+        <h3>الإجمالي: <span id="totalPrice">0</span> ريال</h3>
+    </div>
+
+    <div class="location">
+        <h2>حدد موقعك</h2>
+        <button onclick="getLocation()">حدد الموقع</button>
+        <p id="locationOutput">لم يتم تحديد الموقع </p>
+    </div>
+
+    <footer>
+        <p>&copy; محمد حمد قمير</p>
+    </footer>
+
+    <script>
+        let total = 0;
+
+        function addToCart(productName, price, quantityId) {
+            const quantity = document.getElementById(quantityId).value;
+            const itemTotal = price * quantity;
+
+            // إضافة المنتج إلى السلة
+            const cartItems = document.getElementById('cartItems');
+            const li = document.createElement('li');
+            li.innerHTML = `${productName} - الكمية: ${quantity} - السعر: ${itemTotal} ريال 
+                            <button onclick="removeItem(this, ${itemTotal})">إزالة</button>`;
+            cartItems.appendChild(li);
+
+            // تحديث الإجمالي
+            total += itemTotal;
+            document.getElementById('totalPrice').textContent = total;
+        }
+
+        function removeItem(button, itemTotal) {
+
+            const li = button.parentElement;
+            li.remove();
+
+            // تحديث الإجمالي
+            total -= itemTotal;
+            document.getElementById('totalPrice').textContent = total;
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                document.getElementById('locationOutput').textContent = "الموقع غير مدعوم في هذا المتصفح.";
+            }
+        }
+
+        function showPosition(position) {
+            document.getElementById('locationOutput').textContent =
+                `إحداثياتك: خط العرض: ${position.coords.latitude}, خط الطول: ${position.coords.longitude}`;
+        }
+
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    document.getElementById('locationOutput').textContent = "تم رفض إذن الموقع.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    document.getElementById('locationOutput').textContent = "معلومات الموقع غير متوفرة.";
+                    break;
+                case error.TIMEOUT:
+                    document.getElementById('locationOutput').textContent = "انتهت مهلة طلب الموقع.";
+                    break;
+                default:
+                    document.getElementById('locationOutput').textContent = "حدث خطأ غير معروف.";
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
